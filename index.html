@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abd. Muhaimin, S.Kom | Portofolio</title>
+<meta name="description" content="Portofolio Abd. Muhaimin, S.Kom, lulusan S1 Teknik Informatika Universitas Cokroaminoto Palopo (IPK 3,88). Aplikasi Android, desktop, desain UI/UX, dan mikrokontroler.">
+<meta name="theme-color" content="#071a33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Konsep: pita hero navy dengan sorotan warna yang mengikuti kursor, lalu bagian terang berisi
+   linimasa, proyek, sertifikat. Navy + biru listrik = identitas portofolio asli,
+   emas = ikon kontak asli, merah = warna foto formal & aplikasi MyFlower. */
+:root{
+  --bg:#f3f7ff; --surface:#ffffff; --surface-2:#e8f0ff; --ink:#0a1b36; --muted:#4b5d7b; --line:#d3deF2;
+  --blue:#1f5bff; --blue-ink:#ffffff; --gold:#f2b134; --coral:#ff4b4b; --navy:#071a33; --navy-2:#0d2a52;
+  --shadow:0 18px 40px -22px rgba(7,26,51,.45);
+  --font-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --font-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r-lg:28px; --r-md:16px; --r-sm:10px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#060f20; --surface:#0d1b33; --surface-2:#12264a; --ink:#eaf1ff; --muted:#9fb3d3; --line:#1e3257;
+    --blue:#6b95ff; --blue-ink:#071a33; --gold:#f5c04a; --coral:#ff7070; --shadow:0 18px 40px -22px rgba(0,0,0,.8);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#060f20; --surface:#0d1b33; --surface-2:#12264a; --ink:#eaf1ff; --muted:#9fb3d3; --line:#1e3257;
+  --blue:#6b95ff; --blue-ink:#071a33; --gold:#f5c04a; --coral:#ff7070; --shadow:0 18px 40px -22px rgba(0,0,0,.8);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  -webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.015em}
+p{margin:0}
+.wrap{max-width:1160px;margin:0 auto}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--gold);color:#071a33;padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:16px}
+#progress{position:fixed;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--blue),var(--gold),var(--coral));z-index:60}
+
+/* ---------- Nav ---------- */
+.nav{position:fixed;top:12px;left:0;right:0;z-index:50;padding:0 max(16px,env(safe-area-inset-left,0px))}
+.nav-in{max-width:1160px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:8px 10px 8px 18px;border-radius:999px;
+  background:rgba(7,26,51,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);color:#fff}
+.brand{font-family:var(--font-display);font-weight:800;font-size:1.05rem;text-decoration:none;margin-right:auto;white-space:nowrap}
+.brand b{color:var(--gold)}
+.links{display:flex;gap:2px;list-style:none;margin:0;padding:0}
+.links a{display:block;padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.93rem;color:rgba(255,255,255,.8);transition:background .2s,color .2s}
+.links a:hover{background:rgba(255,255,255,.12);color:#fff}
+.links a.on{background:var(--gold);color:#071a33}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;display:grid;place-items:center;flex:none}
+.icon-btn:hover{background:rgba(255,255,255,.22)}
+.icon-btn svg{width:20px;height:20px}
+#menuBtn{display:none}
+@media (max-width:860px){
+  #menuBtn{display:grid}
+  .links{position:absolute;top:calc(100% + 8px);left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));flex-direction:column;background:var(--navy);
+    border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:8px;display:none}
+  .links.open{display:flex}
+  .links a{padding:12px 16px}
+}
+
+/* ---------- Hero ---------- */
+.hero-band{margin:0 calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:0 max(16px,env(safe-area-inset-left,0px));
+  background:var(--navy);color:#fff;position:relative;overflow:hidden;isolation:isolate}
+.hero-band::before{content:"";position:absolute;inset:0;z-index:-2;
+  background:radial-gradient(60% 70% at 85% 20%,rgba(31,91,255,.55),transparent 70%),
+             radial-gradient(40% 50% at 10% 90%,rgba(255,75,75,.30),transparent 70%),
+             radial-gradient(30% 40% at 55% 100%,rgba(242,177,52,.28),transparent 70%)}
+#spot{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(380px circle at var(--mx,70%) var(--my,30%),rgba(124,212,255,.20),transparent 70%)}
+.hex{position:absolute;inset:0;z-index:-1;opacity:.14;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cpath d='M28 0L56 16V48L28 64L0 48V16Z M28 64V97 M0 48L-28 64 M56 48L84 64' fill='none' stroke='white' stroke-width='1.2'/%3E%3C/svg%3E");
+  -webkit-mask-image:linear-gradient(120deg,transparent 25%,#000 90%);mask-image:linear-gradient(120deg,transparent 25%,#000 90%)}
+.hero{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-block:150px 90px}
+.tag{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 10px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);font-size:.92rem;font-weight:600}
+.dot{width:9px;height:9px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.7);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+.hero h1{font-size:clamp(3rem,8.4vw,6.6rem);font-weight:800;margin:22px 0 14px;letter-spacing:-.035em;line-height:.95}
+.hero h1 span{display:block}
+.hero h1 .l2{background:linear-gradient(90deg,#7cd4ff,#fff 45%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}}
+.lead{max-width:56ch;color:#c4d4f0;margin-top:6px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 24px;border-radius:999px;font-weight:700;font-size:1rem;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:inherit;transition:transform .18s,box-shadow .18s,background .18s}
+.btn svg{width:18px;height:18px}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:#071a33;box-shadow:0 10px 26px -10px rgba(242,177,52,.8)}
+.btn-line{border-color:rgba(255,255,255,.4);color:#fff;background:transparent}
+.btn-line:hover{background:rgba(255,255,255,.12)}
+.btn-blue{background:var(--blue);color:var(--blue-ink)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:var(--surface)}
+.facts{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
+.fact{padding:12px 18px;border-radius:var(--r-md);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);min-width:120px}
+.fact b{display:block;font-family:var(--font-display);font-size:1.7rem;font-weight:800;color:var(--gold);line-height:1.1}
+.fact small{color:#bcd0f0;font-size:.85rem}
+
+.portrait{position:relative;justify-self:center;width:min(100%,380px);perspective:900px}
+.arch{border-radius:200px 200px 28px 28px;overflow:hidden;border:6px solid rgba(255,255,255,.92);aspect-ratio:4/5.2;background:var(--coral);
+  box-shadow:0 40px 70px -30px rgba(0,0,0,.7);transform-style:preserve-3d;transition:transform .15s ease-out}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.chip{position:absolute;padding:9px 14px;border-radius:14px;background:var(--surface);color:var(--ink);font-weight:700;font-size:.88rem;box-shadow:var(--shadow);display:flex;gap:8px;align-items:center;white-space:nowrap}
+.chip i{font-style:normal;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:.85rem;color:#fff}
+.chip.a{left:-34px;top:20%;animation:float 6s ease-in-out infinite}
+.chip.a i{background:#3ddc84;color:#071a33}
+.chip.b{right:-26px;top:52%;animation:float 7s ease-in-out -2s infinite}
+.chip.b i{background:var(--coral)}
+.chip.c{left:-10px;bottom:6%;animation:float 8s ease-in-out -4s infinite}
+.chip.c i{background:var(--blue)}
+@keyframes float{50%{transform:translateY(-10px)}}
+.hero > *{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.hero > .portrait{animation-delay:.15s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-block:120px 70px;gap:40px}
+  .portrait{width:min(78%,320px)}
+  .chip.a{left:-14px}.chip.b{right:-14px}
+}
+
+/* ---------- Section scaffolding ---------- */
+section{padding-block:96px 0}
+.sec-head{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:end;justify-content:space-between;margin-bottom:40px}
+.sec-head h2{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800}
+.sec-head p{max-width:46ch;color:var(--muted)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.fbtn{font-family:inherit;font-weight:600;font-size:.95rem;padding:9px 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:all .18s}
+.fbtn:hover{border-color:var(--blue)}
+.fbtn[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--blue-ink)}
+
+/* ---------- About ---------- */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.about figure{margin:0;position:relative}
+.about figure img{border-radius:var(--r-lg);aspect-ratio:4/5;object-fit:cover;width:100%;box-shadow:var(--shadow)}
+.about figure::after{content:"";position:absolute;inset:auto -16px -16px auto;width:55%;height:55%;border-radius:var(--r-lg);background:var(--gold);z-index:-1}
+.about h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800;margin-bottom:20px}
+.about p{color:var(--muted);max-width:62ch}
+.about p + p{margin-top:14px}
+.kv{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}
+.kv div{padding:14px 18px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--line)}
+.kv dt{font-size:.82rem;color:var(--muted);font-weight:600}
+.kv dd{margin:2px 0 0;font-weight:700}
+@media (max-width:860px){.about{grid-template-columns:1fr;gap:40px}.about figure{max-width:420px}.kv{grid-template-columns:1fr}}
+
+/* ---------- Timeline ---------- */
+.tl{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:22px}
+.tl::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:3px;border-radius:3px;background:linear-gradient(var(--blue),var(--gold),var(--coral))}
+.tl > li{display:grid;grid-template-columns:40px 1fr;gap:22px}
+.tl > li[hidden]{display:none}
+.node{width:40px;height:40px;border-radius:50%;background:var(--surface);border:3px solid var(--blue);display:grid;place-items:center;z-index:1;margin-top:18px}
+.node svg{width:18px;height:18px;color:var(--blue)}
+li[data-kind="lead"] .node{border-color:var(--coral)} li[data-kind="lead"] .node svg{color:var(--coral)}
+li[data-kind="exp"] .node{border-color:var(--gold)} li[data-kind="exp"] .node svg{color:#b97d00}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 28px;box-shadow:var(--shadow)}
+.card-top{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;justify-content:space-between}
+.card h3{font-size:1.45rem;font-weight:700}
+.when{font-weight:700;color:var(--blue);font-size:.95rem;white-space:nowrap}
+.where{color:var(--muted);font-weight:600;margin-top:4px}
+.card ul{margin:14px 0 0;padding-left:20px;color:var(--muted)}
+.card li{padding-left:4px}
+.card li + li{margin-top:6px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.badge{font-size:.85rem;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--surface-2);color:var(--ink)}
+.badge.g{background:rgba(242,177,52,.22)}
+.shots{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.shot{border:0;padding:0;background:none;cursor:zoom-in;border-radius:var(--r-md);overflow:hidden;height:110px;position:relative;flex:0 1 auto}
+.shot img{height:100%;width:auto;object-fit:cover;transition:transform .3s}
+.shot:hover img{transform:scale(1.06)}
+@media (max-width:600px){.tl > li{grid-template-columns:30px 1fr;gap:12px}.tl::before{left:13px}.node{width:30px;height:30px}.node svg{width:14px;height:14px}.card{padding:20px}}
+
+/* ---------- Projects ---------- */
+.proj-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);grid-column:span 2}
+.proj[hidden]{display:none}
+.proj.wide{grid-column:span 6}
+.proj.half{grid-column:span 3}
+.proj .body{padding:24px 26px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
+.proj h3{font-size:1.5rem}
+.proj .body p{color:var(--muted)}
+.kind{font-size:.85rem;font-weight:700;color:var(--coral)}
+.links-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:10px}
+.mini{display:inline-flex;gap:8px;align-items:center;padding:9px 16px;border-radius:999px;font-weight:700;font-size:.92rem;text-decoration:none;background:var(--blue);color:var(--blue-ink)}
+.mini.o{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.mini:hover{filter:brightness(1.08)}
+.mini svg{width:16px;height:16px}
+.cover{display:block;width:100%;border:0;padding:0;cursor:zoom-in;background:var(--surface-2);aspect-ratio:16/10;overflow:hidden}
+.cover img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.cover:hover img{transform:scale(1.04)}
+.cover.pair{display:grid;grid-template-columns:1fr 1fr;gap:3px;cursor:default;aspect-ratio:16/10}
+.cover.pair button{border:0;padding:0;cursor:zoom-in;overflow:hidden;background:none}
+.cover.pair img{width:100%;height:100%;object-fit:cover}
+/* MyFlower */
+.flower{display:grid;grid-template-columns:.8fr 1.2fr;background:linear-gradient(135deg,#7a0f23,#d52a3f 60%,#ff6b6b);color:#fff;border:0}
+.flower .body{padding:36px}
+.flower .body p{color:#ffe9ec}
+.flower .kind{color:var(--gold)}
+.flower h3{font-size:clamp(2rem,4vw,2.8rem)}
+.flower .mini.o{color:#fff;border-color:rgba(255,255,255,.5)}
+.flower .mini{background:#fff;color:#7a0f23}
+.phones{position:relative;padding:28px 0 28px 0;min-width:0}
+.strip{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 28px 14px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.5) transparent}
+.phone{flex:0 0 auto;width:170px;scroll-snap-align:center;border:0;padding:5px;background:#10131a;border-radius:26px;cursor:zoom-in;transition:transform .25s;box-shadow:0 18px 30px -16px rgba(0,0,0,.6)}
+.phone:hover{transform:translateY(-6px) rotate(-1.5deg)}
+.phone img{border-radius:21px;width:100%;aspect-ratio:9/19;object-fit:cover;object-position:top}
+.strip-nav{display:flex;gap:8px;position:absolute;right:28px;bottom:0}
+.strip-nav button{width:36px;height:36px;border-radius:50%;border:0;cursor:pointer;background:rgba(255,255,255,.2);color:#fff;font-size:1.1rem}
+.strip-nav button:hover{background:rgba(255,255,255,.35)}
+.facts-inline{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 8px}
+.facts-inline span{padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.16);font-size:.85rem;font-weight:600}
+@media (max-width:1000px){.proj{grid-column:span 3}.flower{grid-template-columns:1fr}.proj.half{grid-column:span 6}}
+@media (max-width:640px){.proj,.proj.half{grid-column:span 6}.flower .body{padding:26px}}
+.more{margin-top:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.more div{padding:18px 22px;border-radius:var(--r-md);border:1.5px dashed var(--line);color:var(--muted)}
+.more b{display:block;color:var(--ink);font-family:var(--font-display);font-size:1.1rem}
+
+/* ---------- Skills ---------- */
+.skills{align-items:start;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.skill{padding:26px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg)}
+.skill h3{font-size:1.25rem;margin-bottom:16px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{padding:8px 14px;border-radius:12px;font-weight:600;font-size:.93rem;background:var(--surface-2);transition:transform .15s,background .15s,color .15s;cursor:default}
+.pill:hover{background:var(--blue);color:var(--blue-ink);transform:translateY(-2px)}
+.skill.navy{background:var(--navy);color:#fff;border-color:transparent}
+.skill.navy .pill{background:rgba(255,255,255,.1);color:#fff}
+.skill.navy .pill:hover{background:var(--gold);color:#071a33}
+.skill ul{margin:0;padding-left:20px;color:var(--muted)}
+.skill.navy ul{color:#c4d4f0}
+.skill li + li{margin-top:6px}
+
+/* ---------- Certificates ---------- */
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.cert{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.cert .thumb{display:block;width:100%;border:0;padding:0;background:var(--surface-2);aspect-ratio:16/10;overflow:hidden;cursor:zoom-in;position:relative}
+.cert .thumb img{width:100%;height:100%;object-fit:contain;transition:transform .4s}
+.cert .thumb:hover img{transform:scale(1.05)}
+.cert .thumb::after{content:"Perbesar";position:absolute;right:12px;bottom:12px;padding:5px 12px;border-radius:999px;background:rgba(7,26,51,.85);color:#fff;font-size:.8rem;font-weight:700;opacity:0;transition:opacity .2s}
+.cert .thumb:hover::after,.cert .thumb:focus-visible::after{opacity:1}
+.cert .none{display:grid;place-items:center;aspect-ratio:16/10;background:repeating-linear-gradient(45deg,var(--surface-2),var(--surface-2) 12px,transparent 12px,transparent 24px);color:var(--muted);font-weight:600;text-align:center;padding:20px}
+.cert .body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:4px}
+.cert h3{font-size:1.15rem;font-weight:700;line-height:1.2}
+.cert p{color:var(--muted);font-size:.93rem}
+.cert .no{font-size:.82rem;color:var(--muted);margin-top:6px;word-break:break-all}
+
+/* ---------- Contact ---------- */
+.contact-band{margin:96px calc(-1*max(16px,env(safe-area-inset-left,0px))) 0;padding:80px max(16px,env(safe-area-inset-left,0px));background:var(--navy);color:#fff;position:relative;overflow:hidden;isolation:isolate}
+.contact-band::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(50% 80% at 100% 0,rgba(31,91,255,.5),transparent 70%),radial-gradient(40% 60% at 0 100%,rgba(255,75,75,.3),transparent 70%)}
+.contact{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.contact figure{margin:0}
+.contact figure img{border-radius:var(--r-lg);aspect-ratio:4/4.4;object-fit:cover;object-position:50% 20%;width:100%;max-width:420px;box-shadow:0 40px 60px -30px rgba(0,0,0,.7)}
+.contact h2{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:800;margin-bottom:12px}
+.contact .sub{color:#c4d4f0;max-width:48ch;margin-bottom:28px}
+.reach{display:grid;gap:12px;max-width:520px}
+.row{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:var(--r-md);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+.row .ic{width:44px;height:44px;border-radius:50%;background:var(--gold);color:#071a33;display:grid;place-items:center;flex:none}
+.row .ic svg{width:22px;height:22px}
+.row .txt{min-width:0;flex:1}
+.row small{display:block;color:#b6c9ea;font-size:.8rem}
+.row b{font-size:1.02rem;overflow-wrap:anywhere;user-select:all}
+.copy{font-family:inherit;font-weight:700;font-size:.85rem;padding:8px 14px;border-radius:999px;border:1.5px solid rgba(255,255,255,.4);background:transparent;color:#fff;cursor:pointer}
+.copy:hover{background:rgba(255,255,255,.14)}
+.copy.done{background:#3ddc84;border-color:#3ddc84;color:#071a33}
+.contact .cta{margin-top:28px}
+@media (max-width:860px){.contact{grid-template-columns:1fr;gap:36px}.contact figure img{max-width:340px}}
+footer{padding-block:26px 34px;text-align:center;color:var(--muted);font-size:.9rem}
+.contact-band + footer{margin-top:0}
+
+/* ---------- Lightbox ---------- */
+#lb{position:fixed;inset:0;z-index:100;background:rgba(3,10,22,.92);display:none;align-items:center;justify-content:center;padding:56px 16px 72px}
+#lb.open{display:flex}
+#lb img{max-width:min(1200px,100%);max-height:100%;object-fit:contain;border-radius:12px;background:#fff}
+#lbCap{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:#dbe8ff;font-weight:600;padding:0 70px}
+.lbb{position:absolute;width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:1.4rem;cursor:pointer;display:grid;place-items:center}
+.lbb:hover{background:rgba(255,255,255,.3)}
+#lbX{top:14px;right:14px}#lbP{left:12px;top:50%;translate:0 -50%}#lbN{right:12px;top:50%;translate:0 -50%}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#tentang">Langsung ke konten</a>
+<div id="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <nav class="nav-in" aria-label="Navigasi utama">
+    <a class="brand" href="#top">Abd. Muhaimin<b>.</b></a>
+    <ul class="links" id="links">
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#perjalanan">Perjalanan</a></li>
+      <li><a href="#proyek">Proyek</a></li>
+      <li><a href="#keahlian">Keahlian</a></li>
+      <li><a href="#sertifikat">Sertifikat</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Ganti tema terang atau gelap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <button class="icon-btn" id="menuBtn" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="links">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="hero-band">
+    <div class="hex"></div><div id="spot"></div>
+    <div class="hero">
+      <div>
+        <span class="tag"><span class="dot"></span> Terbuka untuk pekerjaan</span>
+        <h1><span>Abd.</span><span class="l2">Muhaimin</span></h1>
+        <p class="lead">Lulusan S1 Teknik Informatika Universitas Cokroaminoto Palopo dengan konsentrasi Rekayasa Perangkat Lunak. Saya membuat aplikasi Android dan desktop, merancang antarmuka di Figma, dan terbiasa memimpin tim.</p>
+        <div class="cta">
+          <a class="btn btn-gold" href="#proyek"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>Lihat proyek</a>
+          <a class="btn btn-line" href="assets/CV_Abd_Muhaimin.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Unduh CV</a>
+        </div>
+        <div class="facts">
+          <div class="fact"><b><span data-count="3.88" data-dec="2">3,88</span></b><small>IPK dari 4,00</small></div>
+          <div class="fact"><b><span data-count="6">6</span></b><small>sertifikat &amp; pelatihan</small></div>
+          <div class="fact"><b><span data-count="2">2</span></b><small>peran ketua tim</small></div>
+        </div>
+      </div>
+      <div class="portrait" id="portrait">
+        <div class="arch" id="arch"><img src="assets/foto-formal.jpg" alt="Foto formal Abd. Muhaimin memakai jas hitam" width="900" height="1262"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TENTANG ===== -->
+  <section id="tentang">
+    <div class="wrap about">
+      <figure><img src="assets/foto-wisuda.jpg" alt="Abd. Muhaimin saat wisuda sarjana memegang ijazah" loading="lazy"></figure>
+      <div>
+        <h2>Sarjana Komputer yang siap bekerja</h2>
+        <p>Saya lulus S1 Teknik Informatika Universitas Cokroaminoto Palopo dengan IPK 3,88 dari 4,00 dan konsentrasi Rekayasa Perangkat Lunak. Pengalaman praktik kerja saya ada di bidang teknologi informasi, dengan fokus pengembangan aplikasi Android dan desktop.</p>
+        <p>Saya menguasai dasar pemrograman Kotlin, C++, dan HTML, serta memakai Android Studio dan Microsoft Office sehari-hari. Saya terbiasa menganalisis masalah, berkomunikasi, dan bekerja dalam tim. Saya ingin terus berkembang dan berkontribusi di lingkungan kerja yang profesional.</p>
+        <dl class="kv">
+          <div><dt>Gelar</dt><dd>Sarjana Komputer (S.Kom), Informatika</dd></div>
+          <div><dt>Domisili</dt><dd>Luwu Utara, Sulawesi Selatan</dd></div>
+          <div><dt>Mata kuliah relevan</dt><dd>Aplikasi Mobile, Mikrokontroler, Sistem Pakar, Internet of Things</dd></div>
+          <div><dt>Bahasa</dt><dd>Bahasa Indonesia</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PERJALANAN ===== -->
+  <section id="perjalanan">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Pendidikan &amp; pengalaman</h2>
+        <p>Dari bangku SMA sampai memimpin kelompok magang dan KKN. Pilih jenisnya untuk menyaring.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Saring perjalanan" data-filter-for="tl">
+        <button class="fbtn" type="button" aria-pressed="true" data-f="all">Semua</button>
+        <button class="fbtn" type="button" aria-pressed="false" data-f="edu">Pendidikan</button>
+        <button class="fbtn" type="button" aria-pressed="false" data-f="exp">Magang</button>
+        <button class="fbtn" type="button" aria-pressed="false" data-f="lead">Kepemimpinan</button>
+      </div>
+      <ol class="tl" id="tl">
+
+        <li data-kind="edu">
+          <span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span>
+          <article class="card">
+            <div class="card-top"><h3>S1 Teknik Informatika</h3><span class="when">2022 – 2026</span></div>
+            <p class="where">Universitas Cokroaminoto Palopo · Rekayasa Perangkat Lunak</p>
+            <div class="badges"><span class="badge g">IPK 3,88 / 4,00</span><span class="badge">S.Kom</span></div>
+            <ul>
+              <li>Membuat aplikasi Android “TugasKu” sebagai tugas akhir mata kuliah Aplikasi Mobile II.</li>
+              <li>Merancang UI sebuah aplikasi sebagai tugas akhir mata kuliah Desain UI/UX.</li>
+              <li>Membuat dan merancang aplikasi desktop untuk memanajemen proyek.</li>
+              <li>Membuat robot car Arduino Uno dengan driver L298N dan sensor ultrasonik untuk mata kuliah Mikrokontroler.</li>
+              <li>Membuat aplikasi Android “MyFlower” sebagai skripsi.</li>
+            </ul>
+          </article>
+        </li>
+
+        <li data-kind="lead">
+          <span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/></svg></span>
+          <article class="card">
+            <div class="card-top"><h3>Ketua Koordinator KKN-T</h3><span class="when">Kepemimpinan</span></div>
+            <p class="where">Universitas Cokroaminoto Palopo · Desa Mabonta</p>
+            <ul>
+              <li>Memimpin dan mengoordinasikan anggota kelompok KKN dalam pelaksanaan program kerja di tingkat desa.</li>
+              <li>Menyusun rencana kegiatan dan memastikan program kerja berjalan sesuai jadwal.</li>
+              <li>Menjalin komunikasi dan koordinasi dengan pemerintah desa, tokoh masyarakat, dan pihak terkait.</li>
+              <li>Mengelola pembagian tugas, menyelesaikan kendala selama kegiatan, dan memastikan semua anggota berkontribusi aktif.</li>
+            </ul>
+            <div class="shots">
+              <button class="shot" type="button" data-zoom data-src="assets/kkn-1.jpg" data-group="kkn" data-cap="KKN-T Desa Mabonta bersama aparatur desa"><img src="assets/kkn-1.jpg" alt="Tim KKN-T berfoto bersama aparatur Desa Mabonta" loading="lazy"></button>
+              <button class="shot" type="button" data-zoom data-src="assets/kkn-2.jpg" data-group="kkn" data-cap="Penyuluhan bentuk-bentuk hoaks berbasis AI kepada warga"><img src="assets/kkn-2.jpg" alt="Penyuluhan tentang hoaks berbasis AI kepada warga desa" loading="lazy"></button>
+            </div>
+          </article>
+        </li>
+
+        <li data-kind="exp">
+          <span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></span>
+          <article class="card">
+            <div class="card-top"><h3>Praktik Dunia Kerja (Magang)</h3><span class="when">14 Mei – 17 Juni 2025</span></div>
+            <p class="where">Kantor Imigrasi Kelas II Non TPI Palopo</p>
+            <div class="badges"><span class="badge g">Sertifikat penghargaan atas kinerja luar biasa</span></div>
+            <ul>
+              <li>Ditempatkan di bagian Tata Usaha serta Teknologi Informasi dan Komunikasi Keimigrasian.</li>
+              <li>Mengerjakan seluruh tugas di lingkup Kantor Imigrasi Kelas II Non TPI Palopo.</li>
+              <li>Membuat aplikasi desktop untuk penginputan surat keluar dan surat masuk.</li>
+            </ul>
+            <div class="shots">
+              <button class="shot" type="button" data-zoom data-src="assets/imigrasi-1.jpg" data-group="imigrasi" data-cap="Presentasi laporan hasil PDK"><img src="assets/imigrasi-1.jpg" alt="Presentasi laporan hasil PDK di Kantor Imigrasi" loading="lazy"></button>
+              <button class="shot" type="button" data-zoom data-src="assets/imigrasi-2.jpg" data-group="imigrasi" data-cap="Bersama pembimbing di Kantor Imigrasi Palopo"><img src="assets/imigrasi-2.jpg" alt="Foto bersama di depan logo Kantor Imigrasi Palopo" loading="lazy"></button>
+              <button class="shot" type="button" data-zoom data-src="assets/desktop-surat.jpg" data-group="imigrasi" data-cap="Aplikasi penginputan nomor surat"><img src="assets/desktop-surat.jpg" alt="Tampilan aplikasi penginputan nomor surat" loading="lazy"></button>
+            </div>
+          </article>
+        </li>
+
+        <li data-kind="lead">
+          <span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span>
+          <article class="card">
+            <div class="card-top"><h3>Ketua Kelompok Praktik Dunia Kerja</h3><span class="when">Kepemimpinan</span></div>
+            <p class="where">Kantor Imigrasi Kelas II Non TPI Palopo</p>
+            <ul>
+              <li>Penanggung jawab semua mahasiswa Universitas Cokroaminoto Palopo yang menjalani praktik dunia kerja di kantor ini.</li>
+              <li>Penanggung jawab kinerja semua anggota selama praktik.</li>
+              <li>Mempresentasikan kinerja kelompok selama praktik dunia kerja.</li>
+            </ul>
+            <div class="shots">
+              <button class="shot" type="button" data-zoom data-src="assets/pdk-lead-1.jpg" data-group="pdk" data-cap="Bekerja bersama anggota kelompok"><img src="assets/pdk-lead-1.jpg" alt="Anggota kelompok PDK bekerja di depan laptop" loading="lazy"></button>
+              <button class="shot" type="button" data-zoom data-src="assets/pdk-lead-2.jpg" data-group="pdk" data-cap="Pekerjaan instalasi jaringan"><img src="assets/pdk-lead-2.jpg" alt="Bekerja dengan laptop dan perangkat jaringan" loading="lazy"></button>
+              <button class="shot" type="button" data-zoom data-src="assets/pdk-lead-3.jpg" data-group="pdk" data-cap="Penataan kabel di ruang rak server"><img src="assets/pdk-lead-3.jpg" alt="Menata kabel jaringan di rak server" loading="lazy"></button>
+            </div>
+          </article>
+        </li>
+
+        <li data-kind="edu">
+          <span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+          <article class="card">
+            <div class="card-top"><h3>Pertukaran Mahasiswa Merdeka (PMM 3)</h3><span class="when">Semester 3 · 5 bulan</span></div>
+            <p class="where">Universitas Tamansiswa Padang, Sumatera Barat</p>
+            <ul>
+              <li>Melatih keterampilan interpersonal lewat program inbound bersama mahasiswa dari 22 universitas di Indonesia.</li>
+              <li>Mengikuti seluruh kegiatan mata kuliah Manajemen selama 5 bulan sesuai kurikulum semester 3, dan mendapat perspektif baru dalam kajian akademik.</li>
+              <li>Menjalankan kegiatan 14 Modul Nusantara yang diselenggarakan Universitas Tamansiswa Padang.</li>
+            </ul>
+            <div class="shots">
+              <button class="shot" type="button" data-zoom data-src="assets/pmm-1.jpg" data-group="pmm" data-cap="Peserta PMM dari 22 universitas"><img src="assets/pmm-1.jpg" alt="Foto bersama peserta PMM dari 22 universitas dengan pakaian adat" loading="lazy"></button>
+              <button class="shot" type="button" data-zoom data-src="assets/pmm-2.jpg" data-group="pmm" data-cap="Kelompok PMM di Universitas Tamansiswa Padang"><img src="assets/pmm-2.jpg" alt="Foto kelompok PMM di studio" loading="lazy"></button>
+            </div>
+          </article>
+        </li>
+
+        <li data-kind="edu">
+          <span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5M8 7h7"/></svg></span>
+          <article class="card">
+            <div class="card-top"><h3>SMAN 5 Luwu Utara</h3><span class="when">2017 – 2021</span></div>
+            <p class="where">Sekolah Menengah Atas</p>
+          </article>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== PROYEK ===== -->
+  <section id="proyek">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Proyek</h2>
+        <p>Aplikasi yang sudah saya bangun, desain yang saya gambar, dan alat yang saya rakit. Klik gambar untuk memperbesar.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Saring proyek" data-filter-for="projGrid">
+        <button class="fbtn" type="button" aria-pressed="true" data-f="all">Semua</button>
+        <button class="fbtn" type="button" aria-pressed="false" data-f="android">Android</button>
+        <button class="fbtn" type="button" aria-pressed="false" data-f="desktop">Desktop</button>
+        <button class="fbtn" type="button" aria-pressed="false" data-f="uiux">Desain UI/UX</button>
+        <button class="fbtn" type="button" aria-pressed="false" data-f="iot">Mikrokontroler</button>
+      </div>
+
+      <div class="proj-grid" id="projGrid">
+
+        <article class="proj wide flower" data-cat="android">
+          <div class="body">
+            <span class="kind">Aplikasi Android · Skripsi</span>
+            <h3>MyFlower</h3>
+            <p>Aplikasi jual beli bunga, papan akrilik, dan buket untuk area Kota Palopo. Pembeli menelusuri katalog, mengisi keranjang, dan checkout. Penjual mengelola produk, melihat pesanan baru, dan memantau pendapatan dari dashboard.</p>
+            <div class="facts-inline"><span>Peran pembeli &amp; penjual</span><span>Masuk dengan Google</span><span>Keranjang &amp; checkout</span></div>
+            <div class="links-row">
+              <a class="mini" href="https://muhaiminhamsul19.github.io/Web-Myflower/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Unduh aplikasi</a>
+            </div>
+          </div>
+          <div class="phones">
+            <div class="strip" id="strip" tabindex="0" aria-label="Tangkapan layar MyFlower, geser ke samping">
+              <button class="phone" type="button" data-zoom data-src="assets/mf-1.jpg" data-group="mf" data-cap="MyFlower: halaman masuk"><img src="assets/mf-1.jpg" alt="Halaman masuk MyFlower" loading="lazy"></button>
+              <button class="phone" type="button" data-zoom data-src="assets/mf-2.jpg" data-group="mf" data-cap="MyFlower: beranda dan katalog produk"><img src="assets/mf-2.jpg" alt="Beranda MyFlower berisi katalog produk" loading="lazy"></button>
+              <button class="phone" type="button" data-zoom data-src="assets/mf-3.jpg" data-group="mf" data-cap="MyFlower: detail produk"><img src="assets/mf-3.jpg" alt="Detail produk di MyFlower" loading="lazy"></button>
+              <button class="phone" type="button" data-zoom data-src="assets/mf-4.jpg" data-group="mf" data-cap="MyFlower: keranjang belanja"><img src="assets/mf-4.jpg" alt="Keranjang belanja MyFlower" loading="lazy"></button>
+              <button class="phone" type="button" data-zoom data-src="assets/mf-5.jpg" data-group="mf" data-cap="MyFlower: dashboard penjual"><img src="assets/mf-5.jpg" alt="Dashboard penjual MyFlower" loading="lazy"></button>
+              <button class="phone" type="button" data-zoom data-src="assets/mf-6.jpg" data-group="mf" data-cap="MyFlower: kelola produk penjual"><img src="assets/mf-6.jpg" alt="Halaman produk penjual MyFlower" loading="lazy"></button>
+            </div>
+            <div class="strip-nav"><button type="button" id="sPrev" aria-label="Geser ke kiri">&#8249;</button><button type="button" id="sNext" aria-label="Geser ke kanan">&#8250;</button></div>
+          </div>
+        </article>
+
+        <article class="proj half" data-cat="desktop">
+          <button class="cover" type="button" data-zoom data-src="assets/desktop-surat.jpg" data-group="desk" data-cap="Aplikasi penginputan nomor surat, Kantor Imigrasi Palopo"><img src="assets/desktop-surat.jpg" alt="Aplikasi penginputan nomor surat Kantor Imigrasi" loading="lazy"></button>
+          <div class="body">
+            <span class="kind">Aplikasi desktop · Magang</span>
+            <h3>Penginputan nomor surat</h3>
+            <p>Dibuat selama magang di Kantor Imigrasi Palopo untuk mencatat surat masuk dan surat keluar. Ada tombol input nomor surat dan rekapan bulanan atau tahunan.</p>
+          </div>
+        </article>
+
+        <article class="proj half" data-cat="iot">
+          <div class="cover pair">
+            <button type="button" data-zoom data-src="assets/robot-1.jpg" data-group="robot" data-cap="Robot car Arduino Uno dengan driver L298N"><img src="assets/robot-1.jpg" alt="Robot car berbasis Arduino Uno" loading="lazy"></button>
+            <button type="button" data-zoom data-src="assets/robot-2.jpg" data-group="robot" data-cap="Menulis kode di Arduino IDE"><img src="assets/robot-2.jpg" alt="Robot car di samping laptop berisi kode Arduino" loading="lazy"></button>
+          </div>
+          <div class="body">
+            <span class="kind">Mikrokontroler · Tugas akhir mata kuliah</span>
+            <h3>Robot car Arduino</h3>
+            <p>Mobil robot beroda empat dengan Arduino Uno, driver motor L298N, dan sensor ultrasonik, diprogram lewat Arduino IDE.</p>
+          </div>
+        </article>
+
+        <article class="proj half" data-cat="uiux">
+          <button class="cover" type="button" data-zoom data-src="assets/figma-1.jpg" data-group="figma" data-cap="Desain UI/UX #1 di Figma"><img src="assets/figma-1.jpg" alt="Tampilan desain aplikasi 1 di Figma" loading="lazy"></button>
+          <div class="body">
+            <span class="kind">Desain UI/UX · Figma</span>
+            <h3>Desain aplikasi mobile 1</h3>
+            <p>Rancangan layar aplikasi Android dari mata kuliah Desain UI/UX.</p>
+            <div class="links-row"><a class="mini o" href="https://www.figma.com/design/h2Ze1WZ9R4NwuJolybEg55/Untitled?node-id=0-1&t=XhtPXvtnkvN67fZp-1" target="_blank" rel="noopener">Buka di Figma</a></div>
+          </div>
+        </article>
+        <article class="proj half" data-cat="uiux">
+          <button class="cover" type="button" data-zoom data-src="assets/figma-2.jpg" data-group="figma" data-cap="Desain UI/UX #2 di Figma"><img src="assets/figma-2.jpg" alt="Tampilan desain aplikasi 2 di Figma" loading="lazy"></button>
+          <div class="body">
+            <span class="kind">Desain UI/UX · Figma</span>
+            <h3>Desain aplikasi mobile 2</h3>
+            <p>Rancangan layar aplikasi Android lengkap dengan alur navigasi antarhalaman.</p>
+            <div class="links-row"><a class="mini o" href="https://www.figma.com/design/mDbcYvp2PIGvO01MXyhdPr/Untitled?node-id=12-1438&t=BfVtLcrLbcWC8KFW-1" target="_blank" rel="noopener">Buka di Figma</a></div>
+          </div>
+        </article>
+        <article class="proj half" data-cat="uiux">
+          <button class="cover" type="button" data-zoom data-src="assets/figma-3.jpg" data-group="figma" data-cap="Internet of Things design platform di Figma"><img src="assets/figma-3.jpg" alt="Desain Internet of Things design platform di Figma" loading="lazy"></button>
+          <div class="body">
+            <span class="kind">Desain UI/UX · Figma</span>
+            <h3>Internet of Things design platform</h3>
+            <p>Desain antarmuka platform Internet of Things dengan banyak layar dan alur.</p>
+            <div class="links-row"><a class="mini o" href="https://www.figma.com/design/V5rNeoxcsNYqt93BBM4oqA/Internet-of-Things-design-platform?node-id=47-5&t=vWDRTlPczAzWEpza-1" target="_blank" rel="noopener">Buka di Figma</a></div>
+          </div>
+        </article>
+        <article class="proj half" data-cat="uiux">
+          <button class="cover" type="button" data-zoom data-src="assets/figma-4.jpg" data-group="figma" data-cap="Desain aplikasi Honda di Figma"><img src="assets/figma-4.jpg" alt="Desain aplikasi pemilihan motor Honda di Figma" loading="lazy"></button>
+          <div class="body">
+            <span class="kind">Desain UI/UX · Figma</span>
+            <h3>Desain aplikasi Honda</h3>
+            <p>Rancangan layar aplikasi rekomendasi motor dengan tema gelap dan aksen merah.</p>
+            <div class="links-row"><a class="mini o" href="https://www.figma.com/design/6c6zOl7tMafN7r0D6lVgUa/Untitled?node-id=0-1&t=cc9zOZch4GhbuADF-1" target="_blank" rel="noopener">Buka di Figma</a></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="more" id="more">
+        <div data-cat="android"><b>TugasKu</b>Aplikasi Android sebagai tugas akhir mata kuliah Aplikasi Mobile II.</div>
+        <div data-cat="desktop"><b>Aplikasi manajemen proyek</b>Aplikasi desktop untuk memanajemen suatu proyek, dibuat di bangku kuliah.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KEAHLIAN ===== -->
+  <section id="keahlian">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Keahlian</h2>
+        <p>Alat dan bahasa yang saya pakai di kuliah, magang, dan proyek.</p>
+      </div>
+      <div class="skills">
+        <div class="skill navy">
+          <h3>Bahasa pemrograman</h3>
+          <div class="pills"><span class="pill">Kotlin</span><span class="pill">C++</span><span class="pill">Bahasa C</span><span class="pill">Pascal</span><span class="pill">HTML</span></div>
+        </div>
+        <div class="skill">
+          <h3>Perangkat lunak</h3>
+          <div class="pills"><span class="pill">Android Studio</span><span class="pill">Figma</span><span class="pill">Visual Studio</span><span class="pill">Visual Basic</span><span class="pill">Arduino IDE</span><span class="pill">Microsoft Word</span><span class="pill">Microsoft Excel</span><span class="pill">Photoshop</span><span class="pill">Canva</span><span class="pill">Pixellab</span><span class="pill">Google Apps</span></div>
+        </div>
+        <div class="skill">
+          <h3>Yang bisa saya kerjakan</h3>
+          <ul>
+            <li>Membuat aplikasi Android sederhana</li>
+            <li>Membuat desain UI untuk sebuah sistem</li>
+            <li>Membuat perangkat berbasis mikrokontroler</li>
+            <li>Analisis data</li>
+            <li>Komunikasi dan kerja sama tim</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERTIFIKAT ===== -->
+  <section id="sertifikat">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Sertifikat &amp; pelatihan</h2>
+        <p>Klik sertifikat untuk melihat dokumen aslinya.</p>
+      </div>
+      <div class="certs">
+        <article class="cert">
+          <button class="thumb" type="button" data-zoom data-src="assets/sert-talenesia.jpg" data-group="cert" data-cap="Pelatihan Admin HR Talenesia"><img src="assets/sert-talenesia.jpg" alt="Sertifikat Pelatihan Admin HR Talenesia" loading="lazy"></button>
+          <div class="body"><h3>Pelatihan Admin HR: menghitung gaji, lembur, tunjangan, dan pajak karyawan</h3><p>Talenesia · PT Wadah Pengembangan Tenaga Kerja · 5 November 2026</p></div>
+        </article>
+        <article class="cert">
+          <button class="thumb" type="button" data-zoom data-src="assets/sert-excel.jpg" data-group="cert" data-cap="Pelatihan Excel Admin Keuangan"><img src="assets/sert-excel.jpg" alt="Sertifikat Pelatihan Excel Admin Keuangan" loading="lazy"></button>
+          <div class="body"><h3>Pelatihan Excel Admin Keuangan: SUM, IF, dan VLOOKUP</h3><p>Talenesia · PT Wadah Pengembangan Tenaga Kerja · 5 November 2026</p></div>
+        </article>
+        <article class="cert">
+          <button class="thumb" type="button" data-zoom data-src="assets/sert-python.jpg" data-group="cert" data-cap="Workshop Dasar Pemrograman Python"><img src="assets/sert-python.jpg" alt="Sertifikat workshop dasar pemrograman Python" loading="lazy"></button>
+          <div class="body"><h3>Workshop &amp; pelatihan dasar pemrograman Python</h3><p>Fakultas Teknik Komputer, UNCP · 8 – 10 Januari 2026</p><span class="no">No. 049/PP-WP/FTKOM-UNCP/I/2026</span></div>
+        </article>
+        <article class="cert">
+          <button class="thumb" type="button" data-zoom data-src="assets/sert-pdk.jpg" data-group="cert" data-cap="Sertifikat penghargaan Praktik Dunia Kerja"><img src="assets/sert-pdk.jpg" alt="Sertifikat penghargaan Praktik Dunia Kerja" loading="lazy"></button>
+          <div class="body"><h3>Sertifikat penghargaan Praktik Dunia Kerja</h3><p>Kantor Imigrasi Kelas II Non TPI Palopo · 14 Mei – 17 Juni 2025</p><span class="no">No. WIM.23.IMI.UM.01.02-384</span></div>
+        </article>
+        <article class="cert">
+          <button class="thumb" type="button" data-zoom data-src="assets/sert-bnsp.jpg" data-group="cert" data-cap="Sertifikat Kompetensi Junior Network Administrator"><img src="assets/sert-bnsp.jpg" alt="Sertifikat kompetensi Junior Network Administrator" loading="lazy"></button>
+          <div class="body"><h3>Junior Network Administrator</h3><p>Badan Nasional Sertifikasi Profesi · 2 – 6 Juli 2024</p><span class="no">No. 61200 3513 3 0102977 2024</span></div>
+        </article>
+        <article class="cert">
+          <button class="thumb" type="button" data-zoom data-src="assets/sert-pmm.jpg" data-group="cert" data-cap="Sertifikat Pertukaran Mahasiswa Merdeka"><img src="assets/sert-pmm.jpg" alt="Sertifikat Pertukaran Mahasiswa Merdeka" loading="lazy"></button>
+          <div class="body"><h3>Pertukaran Mahasiswa Merdeka (PMM 3)</h3><p>Universitas Tamansiswa Padang · Kemdikbudristek</p><span class="no">No. 0346/E.E2/DT.01.01/2024</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KONTAK ===== -->
+  <div class="contact-band" id="kontak">
+    <div class="contact">
+      <figure><img src="assets/foto-kontak.jpg" alt="Abd. Muhaimin tersenyum memakai jaket kuning almamater" loading="lazy"></figure>
+      <div>
+        <h2>Mari bekerja sama</h2>
+        <p class="sub">Saya siap bergabung dan belajar di tim Anda. Hubungi saya lewat WhatsApp atau email.</p>
+        <div class="reach">
+          <div class="row">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></span>
+            <span class="txt"><small>Telepon &amp; WhatsApp</small><b>+62 853 4255 4604</b></span>
+            <button class="copy" type="button" data-copy="+6285342554604">Salin</button>
+          </div>
+          <div class="row">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+            <span class="txt"><small>Email</small><b>abdmuhaimin2412@gmail.com</b></span>
+            <button class="copy" type="button" data-copy="abdmuhaimin2412@gmail.com">Salin</button>
+          </div>
+        </div>
+        <div class="cta">
+          <a class="btn btn-gold" href="https://wa.me/6285342554604" target="_blank" rel="noopener">Chat WhatsApp</a>
+          <a class="btn btn-line" href="mailto:abdmuhaimin2412@gmail.com">Kirim email</a>
+          <a class="btn btn-line" href="assets/CV_Abd_Muhaimin.pdf" download>Unduh CV</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>&copy; 2026 Abd. Muhaimin, S.Kom · Luwu Utara, Sulawesi Selatan</footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Penampil gambar">
+  <button class="lbb" id="lbX" type="button" aria-label="Tutup">&#10005;</button>
+  <button class="lbb" id="lbP" type="button" aria-label="Gambar sebelumnya">&#8249;</button>
+  <img id="lbImg" alt="">
+  <button class="lbb" id="lbN" type="button" aria-label="Gambar berikutnya">&#8250;</button>
+  <p id="lbCap"></p>
+</div>
+
+<script>
+(function(){
+  var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var root=document.documentElement;
+
+  /* Tema */
+  try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')root.setAttribute('data-theme',t);}catch(e){}
+  $('#themeBtn').addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    var next=dark?'light':'dark';root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+
+  /* Menu mobile */
+  var links=$('#links'),mb=$('#menuBtn');
+  mb.addEventListener('click',function(){var o=links.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+  $$('a',links).forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');mb.setAttribute('aria-expanded','false')})});
+
+  /* Progress & scrollspy */
+  var bar=$('#progress');
+  function prog(){var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?h.scrollTop/m*100:0)+'%'}
+  addEventListener('scroll',prog,{passive:true});prog();
+  var secs=$$('section[id],#kontak'),anchors=$$('a',links);
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){anchors.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+    secs.forEach(function(s){io.observe(s)});
+  }
+
+  /* Sorotan kursor di hero & tilt foto */
+  var band=$('.hero-band'),spot=$('#spot'),arch=$('#arch');
+  band.addEventListener('pointermove',function(e){
+    var r=band.getBoundingClientRect();spot.style.setProperty('--mx',(e.clientX-r.left)+'px');spot.style.setProperty('--my',(e.clientY-r.top)+'px');
+    var p=arch.getBoundingClientRect(),dx=(e.clientX-(p.left+p.width/2))/p.width,dy=(e.clientY-(p.top+p.height/2))/p.height;
+    arch.style.transform='rotateY('+(dx*8)+'deg) rotateX('+(-dy*8)+'deg)';
+  });
+  band.addEventListener('pointerleave',function(){arch.style.transform=''});
+
+  /* Hitung angka */
+  var counted=false;
+  function count(){if(counted)return;counted=true;
+    $$('[data-count]').forEach(function(el){
+      var to=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),st=performance.now();
+      (function s(n){var p=Math.min(1,(n-st)/1200),v=to*(1-Math.pow(1-p,3));
+        el.textContent=v.toFixed(dec).replace('.',',');if(p<1)requestAnimationFrame(s)})(st);
+    });}
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){setTimeout(count,500)}
+
+  /* Filter */
+  $$('.filters').forEach(function(box){
+    var target=document.getElementById(box.dataset.filterFor);
+    $$('.fbtn',box).forEach(function(b){b.addEventListener('click',function(){
+      $$('.fbtn',box).forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+      var f=b.dataset.f;
+      $$('[data-kind],[data-cat]',target.parentNode).forEach(function(it){
+        var k=it.dataset.kind||it.dataset.cat;it.hidden=!(f==='all'||k===f)});
+    })});
+  });
+
+  /* Strip MyFlower */
+  var strip=$('#strip');
+  $('#sPrev').addEventListener('click',function(){strip.scrollBy({left:-360,behavior:'smooth'})});
+  $('#sNext').addEventListener('click',function(){strip.scrollBy({left:360,behavior:'smooth'})});
+
+  /* Salin */
+  $$('.copy').forEach(function(b){b.addEventListener('click',function(){
+    var v=b.dataset.copy;
+    function ok(){var o=b.textContent;b.textContent='Tersalin';b.classList.add('done');setTimeout(function(){b.textContent=o;b.classList.remove('done')},1600)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(v).then(ok,function(){})}
+  })});
+
+  /* Lightbox */
+  var lb=$('#lb'),img=$('#lbImg'),cap=$('#lbCap'),list=[],idx=0,last=null;
+  function show(){var it=list[idx];img.src=it.dataset.src;img.alt=it.dataset.cap||'';cap.textContent=it.dataset.cap||'';
+    var multi=list.length>1;$('#lbP').style.display=$('#lbN').style.display=multi?'grid':'none'}
+  function open(el){var g=el.dataset.group;list=$$('[data-zoom][data-group="'+g+'"]');idx=list.indexOf(el);last=el;show();lb.classList.add('open');document.body.style.overflow='hidden';$('#lbX').focus()}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';if(last)last.focus()}
+  function go(d){idx=(idx+d+list.length)%list.length;show()}
+  $$('[data-zoom]').forEach(function(el){el.addEventListener('click',function(){open(el)})});
+  $('#lbX').addEventListener('click',close);$('#lbP').addEventListener('click',function(){go(-1)});$('#lbN').addEventListener('click',function(){go(1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')close();else if(e.key==='ArrowLeft')go(-1);else if(e.key==='ArrowRight')go(1)});
+})();
+</script>
+</body>
+</html>
